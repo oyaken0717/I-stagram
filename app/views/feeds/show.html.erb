@@ -1,0 +1,8 @@
+<h1>詳細</h1>
+
+<p>写真<br><%= image_tag @feed.image.url %></p>
+<P>文章<br> <%= @feed.content %></p>
+
+<%= link_to '編集', edit_feed_path(@feed.id) %>
+<%= link_to "削除", feed_path(@feed.id), method: :delete, data:{confirm: "本当に？"} %>
+<%= link_to '戻る', feeds_path %>

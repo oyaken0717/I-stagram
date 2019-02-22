@@ -1,0 +1,15 @@
+<h1>一覧</h1>
+<%= notice %><br>
+<%= link_to "投稿する", new_feed_path %>
+
+<table>
+<% @feeds.each do |feed| %>
+  <th><%= link_to "詳細", feed_path(feed.id) %></th>
+  <tr>
+  <% if feed.image.url %>
+    <td><%= image_tag(feed.image.url) %></td>
+  <% end %>
+  </tr>
+<% end %>
+<table>
+<br>
