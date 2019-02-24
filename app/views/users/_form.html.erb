@@ -1,4 +1,4 @@
-<%= form_with(model: @user, local: true, url: choose_new_or_edit) do |f| %>
+<%= form_with(model: @user, local: true, url: user_choose_new_or_edit) do |f| %>
   <% if @user.errors.any? %>
       <h2><%= @user.errors.count %>件のエラーがあります。</h2>
       <ul>
@@ -12,5 +12,12 @@
 
   <%= f.label :メールアドレス %><br>
   <%= f.email_field :email %><br>
+
+  <%= f.label :パスワード %><br>
+  <%= f.password_field :password %><br>
+
+  <%= f.label :パスワード再確認 %><br>
+  <%= f.password_field :password_confirmation %><br>
+
   <%= f.submit %><br>
 <% end %>
