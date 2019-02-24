@@ -9,6 +9,34 @@
   </head>
 
   <body>
+    <header>
+    <a href = "/feeds"><h1>I○stagram</h1><a>
+    <hr>
+    </hr>
+    <% flash.each do |key, value| %>
+    <%= content_tag(:div, value, class: "#{key}") %>
+    <% end %>
+
+    <% if logged_in? %>
+      <%= link_to "プロフィール", user_path(current_user.id) %>
+      <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
+    <% else %>
+      <%= link_to "新規登録", new_user_path %>
+      <%= link_to "ログイン", new_session_path %>
+    <% end %>
+    <hr>
+    </hr>
+
+      <ul>
+        <a href = "/feeds"><li>一覧</li><a>
+        <a href = "/feeds/new"><li>新規投稿 </li><a>
+        <a href = "/users/index"><li>ユーザー一覧</li><a>
+      </ul>
+    <hr>
+    </hr>
+    </header>
+
     <%= yield %>
+
   </body>
 </html>

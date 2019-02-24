@@ -1,0 +1,4 @@
+<p>ユーザー一覧</p>
+<% @users.each do |user| %>
+<%= link_to user.name, feed_path(feed.id) %>
+<% end %>
