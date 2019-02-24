@@ -1,0 +1,16 @@
+<%= form_with(model: @user, local: true, url: choose_new_or_edit) do |f| %>
+  <% if @user.errors.any? %>
+      <h2><%= @user.errors.count %>件のエラーがあります。</h2>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+  <% end %>
+  <%= f.label :名前 %><br>
+  <%= f.text_field :name %><br>
+
+  <%= f.label :メールアドレス %><br>
+  <%= f.email_field :email %><br>
+  <%= f.submit %><br>
+<% end %>
