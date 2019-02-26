@@ -7,17 +7,15 @@
         <% end %>
       </ul>
   <% end %>
+  <%= f.label :写真 %><br>
+  <%= f.file_field :image %><br>
   <%= f.label :名前 %><br>
   <%= f.text_field :name %><br>
-
   <%= f.label :メールアドレス %><br>
   <%= f.email_field :email %><br>
-
   <%= f.label :パスワード %><br>
   <%= f.password_field :password %><br>
-
   <%= f.label :パスワード再確認 %><br>
   <%= f.password_field :password_confirmation %><br>
-
   <%= f.submit %><br>
 <% end %>

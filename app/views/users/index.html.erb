@@ -1,4 +1,5 @@
 <p>ユーザー一覧</p>
-<% @users.each do |user| %>
+<% @users.each do |user| %><br>
+<%= image_tag user.image.url %><br>
 <%= link_to user.name, user_path(user.id) %><br>
 <% end %>
