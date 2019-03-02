@@ -30,7 +30,8 @@
       <ul>
         <%= link_to "投稿一覧", feeds_path %><br>
         <%= link_to "新規投稿", new_feed_path %><br>
-        <%= link_to "ユーザー一覧", users_path %>
+        <%= link_to "ユーザー一覧", users_path %><br>
+        <%= link_to "お気に入り一覧",favorites_path(current_user.id) if current_user %><br>
       </ul>
     <hr>
     </hr>

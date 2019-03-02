@@ -1,0 +1,4 @@
+<h1>お気に入り一覧</h1>
+<% @favorites.each do |favorite| %>
+  <%= image_tag(favorite.feed.image.url) if favorite.feed.image.url %><br>
+<% end %>

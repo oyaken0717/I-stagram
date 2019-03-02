@@ -15,7 +15,9 @@ class FeedsController < ApplicationController
 
   def create
     @feed = Feed.new(feed_params)
+    @feed.user = current_user
     if @feed.save
+      ContactMailer.contact_mail(@feed).deliver
       redirect_to feeds_path, notice:"投稿完了"
     else
       render "new"
@@ -23,11 +25,12 @@ class FeedsController < ApplicationController
   end
 
   def confirm
-    @feed = Feed.new(feed_params)
+    @feed = current_user.feeds.build(feed_params)
     render :new if @feed.invalid?
   end
 
   def show
+    @favorite = current_user.favorites.find_by(feed_id: @feed.id)
   end
 
   def edit

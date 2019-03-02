@@ -1,7 +1,15 @@
 <h1>詳細</h1>
-
+<%= image_tag(@feed.user.image.url) if @feed.user.image %><%= @feed.user.name %>
 <p>写真<br><%= image_tag @feed.image.url %></p>
 <P>文章<br> <%= @feed.content %></p>
+
+<% unless @feed.user_id == current_user.id %>
+  <% if @favorite.present? %>
+    <%= link_to "お気に入り解除する", favorite_path(id: @favorite.id), method: :delete, class: "btn btn-danger" %>
+  <% else %>
+    <%= link_to "お気に入りする", favorites_path(post_id: @post.id), method: :post, class: "btn btn-primary" %>
+  <% end %>
+<% end %>
 
 <%= link_to '編集', edit_feed_path(@feed.id) %>
 <%= link_to "削除", feed_path(@feed.id), method: :delete, data:{confirm: "本当に？"} %>
