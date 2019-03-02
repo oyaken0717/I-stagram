@@ -1,4 +1,5 @@
 class FeedsController < ApplicationController
+  before_action :access, only:[:new, :create, :confirm, :edit, :update, :destroy]
   before_action :set_feed, only:[:show,:edit,:update,:destroy]
 
   def index
@@ -57,5 +58,15 @@ class FeedsController < ApplicationController
 
   def feed_params
     params.require(:feed).permit(:image, :image_cache, :content)
+  end
+
+  def post_user
+    @feed = Feed.find(params[:id])
+  end
+
+  def access
+    if current_user != post_user
+      redirect_to new_session_path
+    end
   end
 end

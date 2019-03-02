@@ -7,10 +7,12 @@
   <% if @favorite.present? %>
     <%= link_to "お気に入り解除する", favorite_path(id: @favorite.id), method: :delete, class: "btn btn-danger" %>
   <% else %>
-    <%= link_to "お気に入りする", favorites_path(post_id: @post.id), method: :post, class: "btn btn-primary" %>
+    <%= link_to "お気に入りする", favorites_path(feed_id: @feed.id), method: :post, class: "btn btn-primary" %>
   <% end %>
 <% end %>
 
-<%= link_to '編集', edit_feed_path(@feed.id) %>
-<%= link_to "削除", feed_path(@feed.id), method: :delete, data:{confirm: "本当に？"} %>
+<% if current_user == @feed.user %>
+  <%= link_to '編集', edit_feed_path(@feed.id) %>
+  <%= link_to "削除", feed_path(@feed.id), method: :delete, data:{confirm: "本当に？"} %>
+<% end %>
 <%= link_to '戻る', feeds_path %>
