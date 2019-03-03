@@ -1,5 +1,6 @@
 class FeedsController < ApplicationController
-  before_action :access, only:[:new, :create, :confirm, :edit, :update, :destroy]
+  before_action :feed_access, only:[:new]
+  before_action :access, only:[:create, :confirm, :edit, :update, :destroy]
   before_action :set_feed, only:[:show,:edit,:update,:destroy]
 
   def index
@@ -68,5 +69,9 @@ class FeedsController < ApplicationController
     if current_user != post_user
       redirect_to new_session_path
     end
+  end
+
+  def feed_access
+    redirect_to new_session_path unless logged_in?
   end
 end
