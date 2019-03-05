@@ -61,12 +61,8 @@ class FeedsController < ApplicationController
     params.require(:feed).permit(:image, :image_cache, :content)
   end
 
-  def post_user
-    @feed = Feed.find(params[:id])
-  end
-
   def access
-    if current_user != post_user
+    if current_user != Feed.find(params[:id]).user
       redirect_to new_session_path
     end
   end
