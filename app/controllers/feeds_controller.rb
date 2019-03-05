@@ -1,6 +1,6 @@
 class FeedsController < ApplicationController
   before_action :feed_access, only:[:new]
-  before_action :access, only:[:create, :confirm, :edit, :update, :destroy]
+  before_action :access, only:[:edit, :update, :destroy]
   before_action :set_feed, only:[:show,:edit,:update,:destroy]
 
   def index
