@@ -1,7 +1,7 @@
 class FeedsController < ApplicationController
   before_action :feed_access, only:[:new]
-  before_action :access, only:[:edit, :update, :destroy]
   before_action :set_feed, only:[:show,:edit,:update,:destroy]
+  before_action :access, only:[:edit, :update, :destroy]
 
   def index
     @feeds = Feed.all
@@ -62,7 +62,7 @@ class FeedsController < ApplicationController
   end
 
   def access
-    if current_user != Feed.find(params[:id]).user
+    if current_user != @feed.user
       redirect_to new_session_path
     end
   end
