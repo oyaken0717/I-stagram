@@ -8,7 +8,9 @@
       </ul>
   <% end %>
   <%= f.label :写真 %><br>
-  <%= f.file_field :image %><br>
+  <div class = "center_image_post">
+    <%= f.file_field :image %><br>
+  </div>
   <%= f.label :名前 %><br>
   <%= f.text_field :name %><br>
   <%= f.label :メールアドレス %><br>

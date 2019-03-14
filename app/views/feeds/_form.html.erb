@@ -10,14 +10,14 @@
     </div>
   <% end %>
 
-  <%= form.label :写真 %><br>
-  <%= image_tag(@feed.image.url) if @feed.image.url %><br>
-  <%= form.file_field :image %><br>
-  <%= form.hidden_field :image_cache %>
+    <%= form.label :写真 %><br>
+    <%= image_tag(@feed.image.url) if @feed.image.url %><br>
+    <div class = "center_image_post">
+      <%= form.file_field :image %><br>
+      <%= form.hidden_field :image_cache %>
+    </div>
+    <%= form.label :文章 %><br>
+    <%= form.text_field :content%><br>
+    <%= form.submit %><br>
 
-  <%= form.label :文章 %><br>
-  <%= form.text_field :content%><br>
-
-  <%= form.submit %><br>
-  
 <% end %>

@@ -14,8 +14,49 @@
  *= require_tree .
  *= require_self
  */
+ html {
+   height: 100%;
+ }
+
+ body {
+   height: 100%;
+ }
+
+.home{
+  font-size: 20px;
+
+}
+
+.center {
+  text-align: center;
+}
+
+.center_image_post{
+  margin: 0 43%;
+}
+
  hr {
    height: 1px;
    border: none;
    border-top: 1px #000000 solid;
  }
+
+ .container {
+   /* min-height: 100%; */
+   position: relative;
+ }
+
+ .footer{
+  background-color: #DDDDDD;
+  height: 50px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.main-container {
+  background-image: url("<%= asset_url("home.jpeg") %>");
+  height: 800px;
+  background-size:cover;
+  padding-top: 17%;
+}

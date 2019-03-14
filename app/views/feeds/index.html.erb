@@ -2,14 +2,13 @@
 <%= notice %><br>
 <%= link_to "投稿する", new_feed_path %>
 
-<table>
-<% @feeds.each do |feed| %>
-  <th><%= link_to "詳細", feed_path(feed.id) %></th>
-  <tr>
-  <% if feed.image.url %>
-    <td><%= image_tag(feed.image.url) %></td>
+<div class="container">
+<ul class="row">
+  <% @feeds.each do |feed| %>
+    <li class = "col-md-4"><%= link_to "詳細", feed_path(feed.id) %></li>
+    <% if feed.image.url %>
+      <li class = "col-md-4"><%= image_tag(feed.image.url) %></li>
+    <% end %>
   <% end %>
-  </tr>
-<% end %>
-<table>
-<br>
+</ul>
+</div>
